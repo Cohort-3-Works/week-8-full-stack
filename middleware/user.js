@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 
-const { JWT_USER_PASSWORD } = require("../config");
+require("dotenv").config();
+
+const JWT_USER_PASSWORD = process.env.JWT_USER_PASSWORD;
 
 const userAuth = async (req, res, next) => {
   const token = req.headers.authorization;

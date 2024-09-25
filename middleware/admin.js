@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken");
+require("dotenv").config();
 
-const { JWT_ADMIN_PASSWORD } = require("../config");
+const JWT_ADMIN_PASSWORD = process.env.JWT_ADMIN_PASSWORD;
 
 const adminAuth = async (req, res, next) => {
   const token = req.headers.authorization;
