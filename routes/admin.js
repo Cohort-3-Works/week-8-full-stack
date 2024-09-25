@@ -1,7 +1,7 @@
 const { Router } = require("express");
 require("dotenv").config();
 const { adminAuth } = require("../middleware/admin");
-const { admin } = require("../db");
+const { admin, course } = require("../db.js");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const adminRouter = Router();
@@ -118,6 +118,7 @@ adminRouter.post("/createcourse", adminAuth, async function (req, res) {
       message: "Course created successfully",
     });
   } catch (err) {
+    console.log(err);
     return res.status(500).json({
       success: false,
       message: "Something went wrong !!!",
